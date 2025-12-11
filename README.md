@@ -8,21 +8,21 @@ Trabajo Final Bases de datos 1
 
 ## 📋 Descripción del Proyecto
 
-[cite_start]Este proyecto simula un sistema integral de **gestión de recursos urbanos** diseñado para la Dirección General de Parques y Paseos de la ciudad de Rosario[cite: 3].
+Este proyecto simula un sistema integral de **gestión de recursos urbanos** diseñado para la Dirección General de Parques y Paseos de la ciudad de Rosario.
 
 El objetivo principal es resolver la complejidad logística del mantenimiento del arbolado público mediante una arquitectura de base de datos relacional robusta. El sistema permite administrar el ciclo de vida completo de los activos y servicios:
-1.  **Gestión de Inventario:** Censo de especies, ubicación (coordenadas/plazas) y estado de salud[cite: 12, 13].
-2.  **Operativa de Cuadrillas:** Asignación de tareas (poda, plantado, extracción) y auditoría de productividad[cite: 7, 10].
-3.  **Atención Ciudadana:** Trazabilidad de reclamos vecinales y medición de tiempos de respuesta[cite: 14, 17].
+1.  **Gestión de Inventario:** Censo de especies, ubicación (coordenadas/plazas) y estado de salud.
+2.  **Operativa de Cuadrillas:** Asignación de tareas (poda, plantado, extracción) y auditoría de productividad.
+3.  **Atención Ciudadana:** Trazabilidad de reclamos vecinales y medición de tiempos de respuesta.
 
 ## 🛠️ Stack Tecnológico y Conceptos Aplicados
 
-[cite_start]El proyecto fue desarrollado íntegramente en **SQL Server (T-SQL)** implementando un modelo normalizado en **3FN**[cite: 24]. Se destacan las siguientes técnicas avanzadas:
+[cite_start]El proyecto fue desarrollado íntegramente en **SQL Server (T-SQL)** implementando un modelo normalizado en **3FN**. Se destacan las siguientes técnicas avanzadas:
 
-* **Window Functions & CTEs:** Uso de `ROW_NUMBER()` y `PARTITION BY` dentro de *Common Table Expressions* para generar rankings complejos de árboles por altura y especie, optimizando el rendimiento de consultas analíticas[cite: 42].
-* **Stored Procedures (SP):** Desarrollo de procedimientos con parámetros de salida (`OUTPUT`) para automatizar la lógica de negocio, como la predicción de próximas tareas de mantenimiento basadas en el historial[cite: 49, 51].
-* **Vistas (Views) para KPIs:** Creación de vistas estratégicas que calculan métricas de *Lead Time* (Días entre Reclamo y Resolución) utilizando funciones de fecha (`DATEDIFF`) y lógica condicional[cite: 45].
-* **Integridad Referencial:** Diseño de esquema relacional complejo manejando relaciones N:M entre Tareas, Árboles y Reclamos[cite: 35].
+* **Window Functions & CTEs:** Uso de `ROW_NUMBER()` y `PARTITION BY` dentro de *Common Table Expressions* para generar rankings complejos de árboles por altura y especie, optimizando el rendimiento de consultas analíticas.
+* **Stored Procedures (SP):** Desarrollo de procedimientos con parámetros de salida (`OUTPUT`) para automatizar la lógica de negocio, como la predicción de próximas tareas de mantenimiento basadas en el historial.
+* **Vistas (Views) para KPIs:** Creación de vistas estratégicas que calculan métricas de *Lead Time* (Días entre Reclamo y Resolución) utilizando funciones de fecha (`DATEDIFF`) y lógica condicional.
+* **Integridad Referencial:** Diseño de esquema relacional complejo manejando relaciones N:M entre Tareas, Árboles y Reclamos.
 
 ## 📂 Estructura del Repositorio
 
@@ -30,9 +30,9 @@ El código está dividido en tres scripts principales para garantizar la modular
 
 | Archivo | Descripción |
 | :--- | :--- |
-| `SCRIPT CREACION DB, VIEWS Y SP.sql` | [cite_start]**DDL:** Define la estructura de la base de datos, tablas, claves foráneas, Vistas y Stored Procedures[cite: 25]. |
-| `INSERCION DE DATOS.sql` | [cite_start]**DML / Seed:** Script de población de datos masiva (50 árboles, 20 tareas, 20 reclamos, empleados) para pruebas de estrés y validación lógica[cite: 26]. |
-| `SCRIPT DE EJECUCION DE EJERCICIOS.sql` | [cite_start]**Analysis:** Contiene las consultas de negocio (Queries), ejecución de Vistas y pruebas unitarias de los Stored Procedures[cite: 38]. |
+| `SCRIPT CREACION DB, VIEWS Y SP.sql` | [cite_start]**DDL:** Define la estructura de la base de datos, tablas, claves foráneas, Vistas y Stored Procedures. |
+| `INSERCION DE DATOS.sql` | [cite_start]**DML / Seed:** Script de población de datos masiva (50 árboles, 20 tareas, 20 reclamos, empleados) para pruebas de estrés y validación lógica. |
+| `SCRIPT DE EJECUCION DE EJERCICIOS.sql` | [cite_start]**Analysis:** Contiene las consultas de negocio (Queries), ejecución de Vistas y pruebas unitarias de los Stored Procedures. |
 
 ## 🚀 Instalación y Uso
 
@@ -52,7 +52,7 @@ El código está dividido en tres scripts principales para garantizar la modular
 El sistema responde a preguntas críticas de negocio definidas en los requerimientos:
 
 ### 1. Auditoría de Reclamos "Huérfanos"
-Identificación de motivos de queja que, a pesar de tener múltiples reportes, no han sido asignados a ninguna cuadrilla (Estado: No Asignado)[cite: 40].
+Identificación de motivos de queja que, a pesar de tener múltiples reportes, no han sido asignados a ninguna cuadrilla (Estado: No Asignado).
 
 ### 2. Ranking de Especies (Analytics)
 Mediante el uso de CTEs, se identifican los **Top 3 ejemplares más altos** de cada especie biológica registrada, ordenados para priorizar acciones de poda de altura.
